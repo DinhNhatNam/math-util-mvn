@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3 # 2. có sv r dowload code từ github về server nầy
     - name: Set up JDK 18 # cho mượn JDK , 
-      uses: actio
+      uses: action
