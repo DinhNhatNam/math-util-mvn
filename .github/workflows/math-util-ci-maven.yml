@@ -1,0 +1,18 @@
+
+name: math Utility Repo applying
+#name tương đương console.lg
+on:
+  push:
+    branches: [ "main" ] # bất ì push code lên nhánh main, kho chính 
+  pull_request:
+    branches: [ "main" ] # thiwf tự động thực thi các lệnh dưới đây
+
+jobs:
+  build:
+# build app -> .jar .war bằng cách
+    runs-on: ubuntu-latest # mượn 1 sv bên Mỹ , cài sắn ó obuntu
+
+    steps:
+    - uses: actions/checkout@v3 # 2. có sv r dowload code từ github về server nầy
+    - name: Set up JDK 18 # cho mượn JDK , 
+      uses: actio
