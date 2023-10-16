@@ -1,18 +1,25 @@
 
-name: math Utility Repo applying
-#name tương đương console.lg
-on:
-  push:
-    branches: [ "main" ] # bất ì push code lên nhánh main, kho chính 
-  pull_request:
-    branches: [ "main" ] # thiwf tự động thực thi các lệnh dưới đây
+name: Math Utility Repo applying  #name là tương đương Console.log ghi lại nhật kí chạy các lệnh
 
-jobs:
-  build:
-# build app -> .jar .war bằng cách
-    runs-on: ubuntu-latest # mượn 1 sv bên Mỹ , cài sắn ó obuntu
+
+on:
+  push: 
+    branches: [ "main" ] # bất kì ai push code lên nhánh main, kho code chính 
+  pull_request:
+    branches: [ "main" ]
+
+jobs:      #Thì tự động thực thi các lệnh dưới đây
+  build:    # Build app -> .jar .war bằng cách
+
+    runs-on: ubuntu-latest # mượn một server bên Mỹ, cài sẵn OS Ubuntu
 
     steps:
-    - uses: actions/checkout@v3 # 2. có sv r dowload code từ github về server nầy
-    - name: Set up JDK 18 # cho mượn JDK , 
-      uses: action
+    - uses: actions/checkout@v3  #.Có server rồi, dowload code từ GH về server này
+    - name: Set up JDK 18 - Mượn JDK 18 #3. Cho mượn cái JDK 
+      uses: actions/setup-java@v3
+      with:
+        java-version: '20'  #4. khai bóa JDK version ứng với file pom.xml
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven  -Tạo file .jar          #Mượn Maven, chạy lệnh đóng gói, test luôn 
+      run: mvn -B package --file pom.xml
