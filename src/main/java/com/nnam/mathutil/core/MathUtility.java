@@ -30,7 +30,8 @@ public class MathUtility {
       if(n==0 || n ==1 )
           return 1; // nếu có thể end sớm thì end ngay
   // nếu đi đc đến đây mà ko vướn 2 if trên thì ko cần sài else nếu có trc đó có RETURN
-  long result = 1; // giai thừa bắt đầu = 1
+  long result = 10; // giai thừa bắt đầu = 1
+  // cố tình đổi code
       for (int i = 2; i <=n; i++) {
           result *=i;
       }
